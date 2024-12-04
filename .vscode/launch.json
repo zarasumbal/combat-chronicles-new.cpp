@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug C++ file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "miDebuggerPath": "C:/mingw/bin/gdb.exe",  // Adjust this path based on your MinGW installation
+            "preLaunchTask": "C++: g++ build active file",
+            "visualizerFile": "${fileDirname}/.vscode/launch.vs.json",
+            "linux": {
+                "miDebuggerPath": "/usr/bin/gdb"
+            }
+        }
+    ]
+}
+
+        
+    

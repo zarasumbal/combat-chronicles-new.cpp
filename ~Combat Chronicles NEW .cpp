@@ -10,7 +10,7 @@ struct Player
 {
     string name;
     string playerClass;
-    string inverntory[5];
+    string inventory[5];
     string weapon;
     int health;
     int level;
@@ -231,4 +231,260 @@ void EnemyInfo(Player& player, Enemy& enemy)
         cout << "continuing the story" << endl;//Continuing the story
     }
 
+}
+
+void displayPlayerInfo(Player& player)
+{
+    cout << setw(65) << "Character Information\n\n";
+    cout << "Name: " << player.name << endl;
+    cout << "Class: " << player.playerClass << endl;
+    cout << "Health: " << player.health << endl;
+    cout << "Experience Points: " << player.experiencePoints << endl;
+    if (player.level > player.levelMax)
+    {
+        player.level = 5;
+    }
+    cout << "Level: " << player.level << "\n\n";
+}
+
+string Weapon(Player& player)
+{
+    if (player.level == 1)
+    {
+        player.weapon = "Crimson Petal Lance";
+        player.inventory[0] = player.weapon;
+        return player.weapon;
+    }
+    if (player.level == 2)
+    {
+        player.weapon = "Light Wind Blade";
+        player.inventory[1] = player.weapon;
+        return player.weapon;
+    }
+    if (player.level == 3)
+    {
+        player.weapon = "Thundersong Bow";
+        player.inventory[2] = player.weapon;
+        return player.weapon;
+    }
+    if (player.weapon == 4)
+    {
+        player.weapon = "Flame Sword";
+        player.inventory[3] =player.weapon;
+        return player.weapon;
+    }
+    if (player.level == 5)
+    {
+        player.weapon = "Phoenix Blade";
+        player.inventory[4] = player.weapon;
+        return player.weapon;
+    }
+}
+ 
+void inventory(Player& player)
+{
+    player.inventory[0] = "Crimson Petal Lance";
+    player.inventory[1] = "Light Wind Blade";
+    player.inventory[2] = "Thundersong Bow";
+    player.inventory[3] = "Flame Sword";
+    player.inventory[4] = "Phoenix Blade";
+    cout << "1. Crimson Petal Lance" << setw(40) << "at Level : 1" << endl;
+    cout << "2. Light Wind Blade" << setw(40) << "   at Level : 2" << endl;
+    cout << "3. Thundersong Bow" << setw(40) << "    at Level : 3" << endl;
+    cout << "4. Flame Sword" << setw(40) << "        at Level : 4" << endl;
+    cout << "5. Phoenix Blade" << setw(40) << "      at Level : 5" << endl;
+}
+
+int levelUp(Player& player)
+{
+    if (player.experiencePoints >= 100)
+    {
+        player.level++;
+        if (player.level == 5)
+        {
+            player.level = player.levelMax;
+        }
+        player.health = 100; //Resets health on level up
+        player.experiencePoints = 0; // Reset experience points
+        if (player.level > player.levelMax)
+        {
+            Sleep(2000)
+            cout << "After Andy's defeat, the truth emerges: the trials were humanity's last stand against an imminent alien invasion. Each character's role in shaping the simulation becomes clear. With Andy's fall, a new chapter begins. United by purpose, they harness the simulation's power, preparing to confront the looming threat. Their mission: defend humanity, using the simulation's depths to ensure unity against the impending extraterrestrial onslaught." << endl << endl;
+        }
+        else 
+        {
+            cout << "\nCongratulations! You've leveled up to Level " << player.level << "!" << endl;
+            return player.level;
+        }
+    }
+}
+
+int PlayerAttack(Player& player)
+{
+    string ch;
+    cin >> ch;
+    ch = input(ch);
+    ch = lowerString(ch);
+    while(true)
+    {
+        if (!cin.eof() && !cin.fail())
+        {
+            if (ch == "1")
+            {
+                player.attack = 3;
+                return player.attack;
+                true;
+            }
+            else if (ch == "2")
+            {
+                player.attack = 6;
+                return player.attack;
+                true;
+            }
+            else if (ch == "3")
+            {
+                player.attack = 9;
+                return player.attack;
+                true;
+            }
+            else if (ch == "4")
+            {
+                player.attack = 12
+                return player.attack;
+                true;
+            }
+            else if (ch == "5")
+            {
+                player.attack = 15;
+                return player.attack;
+                true;
+            }
+            else if (ch == "6")
+            {
+                player.attack = 18;
+                return player.attack;
+                true;
+            }
+            else if (ch == "7")
+            {
+                player.attack = 21;
+                return player.attack;
+                true;
+            }
+            else if (ch == "8")
+            {
+                player.attack = 24;
+                return player.attack;
+                true;
+            }
+            else if (ch == "9")
+            {
+                player.attack = 27; 
+            }
+            else if (ch == "0")
+            {
+                player.attack = 50;
+                return player.attack;
+                true;
+            }
+            else 
+            {
+                player.attack = 0;
+                break;
+            }
+        }
+        else if (cin.eof() && cin.fail())
+        {
+            cin.clear();
+            player.attack = 0;
+            break;
+        }
+    };
+}
+
+void battle(Player& player, Enemy& enemy)
+{
+    cout << "\nPlayer Weapon: " << Weapon(player) << endl << endl;
+    cout << setw(40) << player.name << setw(20) << "V/S" << setw(20) << enemy.enemyName << endl;
+    while (true)
+    {
+        int enemyAttack = rand() % 30 + 5; //Simulates enemy attack
+        if (player.health > 0)
+        {
+            PlayerAttack(player);
+            cout << "You attack the " << enemy.enemyName << " for " << "'" << player.attack << "'" << " damage." << endl;
+            enemy.enemyHealth = enemy.enemyHealth - player.attack;
+            if (enemy.enemyHealth > 0)
+            {
+                cout << enemy.enemyName << " attacks you for " << enemyAttack << " damage. " << endl;
+                player.health = player.health - enemyAttack;
+                if (player.health <= 0)
+                {
+                    player.health = 0;
+                    cout << "\nYour Health: " << player.health << setw(25) << enemy.enemyName << " Health: " << enemy.enemyHealth << endl;
+                    while (true)
+                    {
+                        cout << "You were defeated.\n\n";
+                    up:
+                        cout << "Do you want to play again (Y / N)...";
+                        string choice;
+                        choice = input(choice);
+                        choice = lowerString(choice);
+                        cin >> choice;
+                        if (choice == "y" || choice == "Y")
+                        {
+                            system("cls");
+                            cout << setw(50) << "LEVEL " << player.level << endl;
+                            battle(player, enemy);
+                        }
+                        else if (choice == "n" || choice == "N")
+                        {
+                            cout << "Do you want to quit the game (Y / N)...";
+                        jump:
+                            cin >> choice;
+                            choice = input(choice);
+                            choice = lowerString(choice);
+                            if (choice == "Y" || choice == "y")
+                            {
+                                system("cls")
+                                Quit();
+                            }
+                            else if (choice == "n" || choice == "N")
+                            {
+                                cout << endl;
+                                goto up;
+                            }
+                            else
+                            {
+                                cout << "Invalid Input.";
+                                goto jump;
+                            }
+                        }
+                    };
+                }
+
+                else 
+                {
+                    cout << "\nYour Health: " << player.health << setw(25) << enemy.enemyName << " Health: " << enemy.enemyHealth << endl;
+                    true;
+                }
+                true;
+            }
+            else if (enemy.enemyHealth <= 0)
+            {
+                enemy.enemyHealth = 0;
+                cout << "\nYour Health: " << player.health << setw(25) << enemy.enemyName << " Health: " << enemy.enemyHealth << endl;
+                cout << "You defeated: " << enemy.enemyName << "You gained 100 experience points. " << endl;
+                player.experiencePoints = player.experiencePoints + 100;
+                levelUp(player);
+
+                break;
+            }
+        }
+        else if (player.health <= 0)
+        {
+            player.health = 100;
+            true;
+        }
+    }
 }
