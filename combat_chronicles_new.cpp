@@ -160,9 +160,9 @@ void EnemyInfo(Player& player, Enemy& enemy)
         cout << "Vitality: " << enemy.enemyHealth << endl;
         cout << "Difficulty Rank: " << enemy.difficultyLevel << endl;
         cout << endl << endl;
-        Sleep(2000)
+        Sleep(2000);
         cout << endl << endl;
-        cout << "Level 1: The Arena Awaits Your Courage!"
+        cout << "Level 1: The Arena Awaits Your Courage!" << endl;
         cout << "Doctor story " << endl; //New enemy name and new story
         cout << "Continuing the story" << endl << endl; //Continuing the story
     }
@@ -192,7 +192,7 @@ void EnemyInfo(Player& player, Enemy& enemy)
         cout << "Vitality: " << enemy.enemyHealth << endl;
         cout << "Difficulty Level: " << enemy.difficultyLevel << endl;
         cout << endl << endl;
-        Sleep(2000)
+        Sleep(2000);
         cout << "Level 3: Seize Glory in the Arena!" << endl;
         cout << "ANNA story" << endl;//New enemy name and new story
         cout << "continuing the story" << endl;//Continuing the story
@@ -208,7 +208,7 @@ void EnemyInfo(Player& player, Enemy& enemy)
         cout << "Vitality: " << enemy.enemyHealth << endl;
         cout << "Difficulty Rank: " << enemy.difficultyLevel << endl;
         cout << endl << endl;
-        Sleep(2000)
+        Sleep(2000);
         cout << "Level 4: Enter The Realm of Eternal Combat!" << endl;
         cout << "CARLO story" << endl;//New enemy name and new story
         cout << "continuing the story" << endl;//Continuing the story
@@ -225,7 +225,7 @@ void EnemyInfo(Player& player, Enemy& enemy)
         cout << "Vitality: " << enemy.enemyHealth << endl;
         cout << "Difficulty Rank: " << enemy.difficultyLevel << endl;
         cout << endl << endl;
-        Sleep(2000)
+        Sleep(2000);
         cout << "The Grand Showdown" << endl;
         cout << "ANDY story" << endl;//New enemy name and new story
         cout << "continuing the story" << endl;//Continuing the story
@@ -267,7 +267,7 @@ string Weapon(Player& player)
         player.inventory[2] = player.weapon;
         return player.weapon;
     }
-    if (player.weapon == 4)
+    if (player.level == 4)
     {
         player.weapon = "Flame Sword";
         player.inventory[3] =player.weapon;
@@ -308,7 +308,7 @@ int levelUp(Player& player)
         player.experiencePoints = 0; // Reset experience points
         if (player.level > player.levelMax)
         {
-            Sleep(2000)
+            Sleep(2000);
             cout << "After Andy's defeat, the truth emerges: the trials were humanity's last stand against an imminent alien invasion. Each character's role in shaping the simulation becomes clear. With Andy's fall, a new chapter begins. United by purpose, they harness the simulation's power, preparing to confront the looming threat. Their mission: defend humanity, using the simulation's depths to ensure unity against the impending extraterrestrial onslaught." << endl << endl;
         }
         else 
@@ -349,7 +349,7 @@ int PlayerAttack(Player& player)
             }
             else if (ch == "4")
             {
-                player.attack = 12
+                player.attack = 12;
                 return player.attack;
                 true;
             }
@@ -446,7 +446,7 @@ void battle(Player& player, Enemy& enemy)
                             choice = lowerString(choice);
                             if (choice == "Y" || choice == "y")
                             {
-                                system("cls")
+                                system("cls");
                                 Quit();
                             }
                             else if (choice == "n" || choice == "N")
@@ -487,4 +487,340 @@ void battle(Player& player, Enemy& enemy)
             true;
         }
     }
+}
+
+void gameLoop(Player& player, Enemy& enemy)
+{
+    levelUp(player);
+    EnemyInfo(player, enemy);
+    battle(player, enemy);
+}
+void Controls()
+{
+    cout << "Channel your fury: press 1 to knock 3 points off their health!" << endl;
+    cout << "Channel your fury: press 2 to knock 6 points off their health!" << endl;
+    cout << "Channel your fury: press 3 to knock 9 points off their health!" << endl;
+    cout << "Channel your fury: press 4 to knock 12 points off their health!" << endl;
+    cout << "Channel your fury: press 5 to knock 15 points off their health!" << endl;
+    cout << "Channel your fury: press 6 to knock 18 points off their health!" << endl;
+    cout << "Channel your fury: press 7 to knock 21 points off their health!" << endl;
+    cout << "Channel your fury: press 8 to knock 24 points off their health!" << endl;
+    cout << "Channel your fury: press 9 to knock 27 points off their health!" << endl;
+    cout << "Channel your fury: press 10 to knock 30 points off their health!" << endl;
+}
+
+void StoryLine(Player& player)
+{
+    cout << endl << endl << set(70) << "Combat Chronicles: The Battle Begins" << endl << endl << endl;
+    cout << "In the realm of Valor, where tales of heroes echo through time," << endl;
+    cout << "the Combat Chronicles unveil legendary battles and untold bravery." << endl << endl;
+    
+    Sleep(3000);
+
+    cout << "Level 1 - Enter the Arena:" << endl;
+    cout << "Your journey commences against Doctor, once a healer turned to dark arts." << endl;
+    cout << "He wields twisted magic, challenge him to begin your odyssey." << endl << endl;
+
+    Sleep(3000);
+
+    cout << "Level 2 - Shadows of Deception:" << endl;
+    cout << "Sara, Andy's stealthy assassin, lurks in the shadows, waiting for a challenger." << endl;
+    cout << "Unveil her stealth and outwit her to continue your epic quest." << endl << endl;
+
+    Sleep(3000);
+
+    cout << "Level 3 - Arcane Secrets:" << endl;
+    cout << "Anna, the sorceress wielding forbidden magic, stands guard in this realm." << endl;
+    cout << "Confront her arcane powers and surpass this mystical challenge." << endl << endl;
+
+    Sleep(3000);
+
+    cout << "Level 4 - Fortress of Strength:" << endl;
+    cout << "Carlo, the unyielding guardian of Andy's fortress, awaits your arrival." << endl;
+    cout << "Defeat his formidable strength and tactics to reach the final encounter." <<endl << endl;
+
+    Sleep(3000);
+
+    cout << "Final Showdown - Dark Sorcerer's Domain:" << endl;
+    cout << "Prepare for the ultimate confrontation against Andy, the malevolent sorcerer." << endl;
+    cout << "Unleash your valor to rewrite the Chronicles and claim victory!" << endl << endl;
+
+    Sleep(3000);
+
+    cout << "Embark on this legendary journey, rewrite the Chronicles of Combat, and emerge as the hero of Valor!" << endl << endl;
+}
+
+void End(Player& player, Enemy& enemy)
+{
+    displayPlayerInfo(player);
+    cout << endl;
+    cout << player.name << "has triumphed over: " << endl << endl;
+    cout << "*DOCTOR\n*SARA\n*ANNA\n*CARLO\n*ANDY" << endl;
+
+}
+
+int main()
+{
+    Player player;
+    Enemy enemy;
+    string ch;
+    system("cls");
+    cout << "\n\n\n\n";
+    cout << setw(65) << "~ COMBAT CHRONICLES ~\n" << endl << endl;
+    cout << "1. Begin the Tale." << endl << endl;
+    cout << "2. Enter the Realm." << endl << endl;
+    cout << "3. Browse your Treasures." << endl << endl;
+    cout << "4. Tweak the Magic." << endl << endl;
+    cout << "5. Escape the Journey." << endl << endl;
+
+jump:
+    cin >> ch;
+    ch = input(ch);
+    ch = lowerString(ch);
+    while (true)
+    {
+        if (ch == "1")
+        {
+            system("cls");
+            StoryLine(player);
+            string choice;
+            do
+            {
+                cout << "Press y to continue your journey....";
+                cin >> choice;
+                choice = input(choice);
+                choice = lowerString(choice);
+            } while (choice != "y");
+
+            main;
+            break;
+            
+        }
+        else if (ch == "2")
+        {
+            system("cls");
+            cin.ignore();
+            initializePlayer(player);
+            cout << endl << endl;
+            displayPlayerInfo(player);
+        
+        play:
+            cout << "Ready to embark on your quest? (Y/N): ";
+            string choice;
+            cin >> choice;
+            choice = input(choice);
+            choice = lowerString(choice);
+            while(true)
+            {
+                if (choice == "y")
+                {
+                    system("cls");
+                    string c;
+
+                    do
+                    {
+                        gameLoop(player, enemy);
+
+                    up:
+                        if (player.level > player.levelMax)
+                        {
+                            string choice;
+
+                            do
+                            {
+                            again:
+                               cout << "\nPress y to continue... ";
+                               cin >> choice;
+                               choice = input(choice);
+                               choice = lowerString(choice);
+                               if (choice == "y")
+                               {
+                                   system("cls");
+                                   End(player, enemy);
+                                   do
+                                   { 
+                                    y:
+                                       cout << "Press y to continue... ";
+                                       string x;
+                                       cin >> x;
+                                       x = input(x);
+                                       x = lowerString(x);
+                                       if (x == "y")
+                                       {
+                                          system("cls");
+                                          main();
+                                       }
+                                       else if (x != "y")
+                                       {
+                                          goto y;
+                                       }
+                                        
+                                        
+                                    } while (c != "y");
+
+                                }   
+                                else if (choice != "y")
+                                {
+                                    goto again;
+                                } 
+                            } while (c != "y");
+
+                        }
+                        else if (player.level <= player.levelMax)
+                        {
+                            cout << "Ready for next level (Y/N): ";
+                            cin >> c;
+                            c = input(c);
+                            c = lowerString(c);
+                            if (c == "n" || c == "N")
+                            {
+                                cout << "Do you want to quit... (y/n): ";
+                            choice: 
+                                string ch;
+                                cin >> ch;
+                                ch = input(ch);
+                                ch = lowerString(ch);
+                                if (ch == "Y" || ch == "y")
+                                {
+                                    system("cls");
+                                    cout << displayPlayerInfo << endl;
+                                    return 0;
+                                }
+                                else if (ch == "n" || ch == "N")
+                                {
+                                    goto up;
+                                }
+                                else
+                                {
+                                    cout << "Invalid Input ! " << endl;
+                                    goto choice;
+                                }
+                            }
+                            else if  (c == "y" || c == "Y")
+                            {
+                                system("cls");
+                                if (player.level > player.levelMax)
+                                {
+                                    string choice;
+                                    do
+                                    {
+                                        cout << "\nPress y to continue....";
+                                        cin >> choice;
+                                        choice = input(choice);
+                                        choice = lowerString(choice);
+                                        if (choice == "y")
+                                        {
+                                            End(player, enemy);
+                                        }
+                                    } while (choice == "y");
+                                    main();
+                                    break:
+                                    
+                                }
+                            
+                                
+                            }
+                            else
+                            {
+                                cout << "Invalid Input ! " << endl;
+                                goto up;
+                            }
+                        }        
+    
+                        
+                        /* code */
+                    } while (c == "y" || c == "Y");
+                    true;
+
+                }
+                else if 
+                {
+                    string choice;
+                    cout << "\nDo you want to quit the game (Y/N): ";
+                    do 
+                    {
+                    ch:
+                        cin >> choice;
+                        choice = input(choice);
+                        choice = lowerString(choice);
+                        if (choice == "y" || choice == "Y")
+                        {
+                            Quit();
+                            return 0;
+                        }
+                        else if (choice == "n" || choice == "N")
+                        {
+                            cout << "Inavlid Input ! " << endl;
+                            goto ch;
+                        }
+
+                    
+                    } while (choice == "Y" || choice == "y" || choice == "N" || choice == "n");
+                    true;
+    
+                    
+                }
+                else
+                {
+                    cout << "Invalid Input ! " << endl;
+                    goto play;
+                }
+
+            };
+            break;
+
+        }
+        else if (ch == "3")
+        {
+            system("cls");
+            inventory(player);
+            string choice;
+            do
+            {
+                cout << "Press y to continue...";
+                cin >> choice;
+                choice = input(choice);
+                choice = lowerString(choice);
+
+            } while (choice != "y");
+            true;
+            main();
+            break;
+            
+        }
+        else if (ch == "4")
+        {
+            system("cls");
+            Controls();
+            string choice;
+            do
+            {
+                cout << "Press y to continue...";
+                cin >> choice;
+                choice = input(choice);
+                choice = lowerString(choice);
+
+            } while (choice != "y");
+            true;
+            main();
+            break;
+            
+            
+        }
+        else if (ch == "5")
+        {
+            system("cls");
+            cout << "\n\n\n\n\n\n";
+            Quit();
+            break;
+
+        }
+        else
+        {
+            cout << "Invalid Input ! " << endl;
+            goto jump;
+        }
+
+    };
+
 }
