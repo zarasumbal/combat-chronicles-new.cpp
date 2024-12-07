@@ -5,7 +5,7 @@
             "name": "C++: g++ build and debug active file",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/a.exe",
+            "program": "${fileDirname}/a.exe",  // Adjust path if needed
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -19,8 +19,8 @@
                     "ignoreFailures": true
                 }
             ],
-            "miDebuggerPath": "/usr/bin/gdb",
-            "preLaunchTask": "build",
+            "miDebuggerPath": "C:/MinGW/bin/gdb.exe",  // Adjust path for Windows
+            "preLaunchTask": "build",  // Ensure build task is defined in tasks.json
             "internalConsoleOptions": "openOnSessionStart"
         }
     ]

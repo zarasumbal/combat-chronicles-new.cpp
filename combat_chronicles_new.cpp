@@ -89,7 +89,7 @@ string input(string x)
  
 void Quit()
 {
-    cout << setw(50) << "~ GOODBYE! ~" << endl;
+    cout << setw(50) << " ~ GOODBYE! ~ " << endl;
 }
 
 void initializePlayer(Player& player)
@@ -106,7 +106,7 @@ void initializePlayer(Player& player)
 
         if (player.name.empty() && !validateAlphaString(player.name))
         {
-            cout << "Invalid Input." << endl;
+            cout << "Invalid Input ! " << endl;
         }
         else if(player.name.length() < 3 || player.name.length() > 8)
         {
@@ -155,7 +155,7 @@ void EnemyInfo(Player& player, Enemy& enemy)
 
     if (player.level == 1)
     {
-        cout << setw(50) << "=== LEVEL 1 ===" << endl << endl;
+        cout << setw(50) << " === LEVEL 1 === " << endl << endl;
         enemy.enemyName = "TWILIGHT SERPENT";
         enemy.enemyHealth = 50;
         enemy.difficultyLevel = 1;
@@ -171,7 +171,7 @@ void EnemyInfo(Player& player, Enemy& enemy)
     }
     else if (player.level == 2)
     {
-        cout << setw(50) << "=== LEVEL 2 ===" << endl;
+        cout << setw(50) << " === LEVEL 2 === " << endl;
         enemy.enemyName = "THUNDER BEAST";
         enemy.enemyHealth = 100;
         enemy.difficultyLevel = 2;
@@ -187,7 +187,7 @@ void EnemyInfo(Player& player, Enemy& enemy)
     }
     else if (player.level == 3)
     {
-        cout << setw(50) << "=== LEVEL 3 ===" << endl << endl;
+        cout << setw(50) << " === LEVEL 3 === " << endl << endl;
         enemy.enemyName = "BLOODVEIL SORCERER";
         enemy.enemyHealth = 130;
         enemy.difficultyLevel = 3;
@@ -203,7 +203,7 @@ void EnemyInfo(Player& player, Enemy& enemy)
     }
     else if (player.level == 4)
     {
-        cout << setw(50) << "=== LEVEL 4 ===" << endl << endl;
+        cout << setw(50) << " === LEVEL 4 === " << endl << endl;
         enemy.enemyName = "VOID PHANTOM";
         enemy.enemyHealth = 150;
         enemy.difficultyLevel = 4;
@@ -220,7 +220,7 @@ void EnemyInfo(Player& player, Enemy& enemy)
     }
     else if (player.level = player.levelMax)
     {
-        cout << setw(50) << "=== FINALE ===" << endl << endl;
+        cout << setw(50) << " === FINALE === " << endl << endl;
         enemy.enemyName = "SHADOWSTRIKE RAIDER";
         enemy.enemyHealth = 200;
         enemy.difficultyLevel = 5;
@@ -695,7 +695,7 @@ jump:
                                 }
                                 else
                                 {
-                                    cout << "Invalid Input ! " << endl;
+                                    cout << "Invalid Input !" << endl;
                                     goto choice;
                                 }
                             }

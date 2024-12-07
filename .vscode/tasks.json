@@ -4,18 +4,18 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "g++",
+            "command": "g++",  // Or provide the full path, e.g., "C:/MinGW/bin/g++.exe"
             "args": [
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}/a.exe"
+                "-g",  // Debugging information
+                "${file}",  // The currently active file
+                "-o", 
+                "${fileDirname}/a.exe"  // Output the executable in the same directory as the source file (or change to a subfolder like "bin/a.exe")
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": ["$gcc"],
+            "problemMatcher": ["$gcc"],  // Matches GCC-related errors
             "detail": "Generated task for compiling C++ code"
         }
     ]
