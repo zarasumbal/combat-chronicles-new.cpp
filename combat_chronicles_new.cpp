@@ -514,7 +514,7 @@ void Controls()
 
 void StoryLine(Player& player)
 {
-    cout << endl << endl << set(70) << "Combat Chronicles: The Battle Begins" << endl << endl << endl;
+    cout << endl << endl << setw(70) << "Combat Chronicles: The Battle Begins" << endl << endl << endl;
     cout << "In the heat of battle, heroes are made, and legends are written." << endl;
     cout << "Welcome to the Combat Chronicles, where the story of your might and courage unfolds..." << endl << endl;
     
@@ -717,7 +717,7 @@ jump:
                                         }
                                     } while (choice == "y");
                                     main();
-                                    break:
+                                    break;
                                     
                                 }
                             
@@ -730,13 +730,11 @@ jump:
                             }
                         }        
     
-                        
-                        /* code */
                     } while (c == "y" || c == "Y");
                     true;
 
                 }
-                else if 
+                else if (choice == "n" || choice == "N")
                 {
                     string choice;
                     cout << "\nDo you want to quit the game (Y/N): ";
