@@ -65,7 +65,7 @@ string getValidName(string name)
 {
     while (!validateAlphaString(name))
     {
-        cout << "Wrong Input! please USE only alphabets for name" << endl;
+        cout << "Wrong Input ! please USE only alphabets for name" << endl;
         cout << "Enter Name: ";
         getline(cin, name);
     }
@@ -123,13 +123,16 @@ void initializePlayer(Player& player)
     while (true)
     {
         cout << endl << setw(55) << "CLASSES";
-        cout << "\n\n* WARRIOR\n\n* MAGE\n\n* ROGUE" << endl;
+        cout << "\n\n* SKY HUNTER\n\n* EMBER KNIGHT\n\n* RUNE SAGE " << endl;
+        cout << "\n\n* SKY HUNTER : Aerial Precision\n\n* EMBER KNIGHT : Fiery Warrior\n\n* RUNE SAGE : Mystical Scholar" << endl;
+        cout << endl;
         cout << "\nChoose your class: ";
+
 
         getline(cin, player.playerClass);
         player.playerClass = input(player.playerClass);
         player.playerClass = upperString(player.playerClass);
-        if (player.playerClass == "WARRIOR" || player.playerClass == "MAGE" || player.playerClass == "ROGUE")
+        if (player.playerClass == "SKY HUNTER" || player.playerClass == "EMBER KNIGHT" || player.playerClass == "RUNE SAGE")
         {
             player.playerClass;
             break;
@@ -153,7 +156,7 @@ void EnemyInfo(Player& player, Enemy& enemy)
     if (player.level == 1)
     {
         cout << setw(50) << "=== LEVEL 1 ===" << endl << endl;
-        enemy.enemyName = "DOCTOR";
+        enemy.enemyName = "TWILIGHT SERPENT";
         enemy.enemyHealth = 50;
         enemy.difficultyLevel = 1;
         cout << "Foe Identified: " << enemy.enemyName << endl;
@@ -163,13 +166,13 @@ void EnemyInfo(Player& player, Enemy& enemy)
         Sleep(2000);
         cout << endl << endl;
         cout << "Level 1: The Arena Awaits Your Courage!" << endl;
-        cout << "Doctor story " << endl; //New enemy name and new story
-        cout << "Continuing the story" << endl << endl; //Continuing the story
+        cout << "The TWILIGHT SERPENT slithers in the murky depths, its venomous strike a silent threat in the dark. " << endl; 
+        cout << "Face it now to prove your strength in the first trial of your journey..." << endl << endl; 
     }
     else if (player.level == 2)
     {
         cout << setw(50) << "=== LEVEL 2 ===" << endl;
-        enemy.enemyName = "SARA";
+        enemy.enemyName = "THUNDER BEAST";
         enemy.enemyHealth = 100;
         enemy.difficultyLevel = 2;
         cout << "Foe Identified: " << enemy.enemyName << endl;
@@ -178,14 +181,14 @@ void EnemyInfo(Player& player, Enemy& enemy)
         Sleep(2000);
         cout << endl << endl;
         cout << "Level 2: Get Ready To Rumble!" << endl;
-        cout << "SARA story" << endl; //New enemy name and new story
-        cout << "continuing the story" << endl << endl; //Continuing the story
+        cout << "A creature born from the strorm, the THUNDER BEAST roars with the fury of the sky itself. " << endl; 
+        cout << "Its lightning-infused strikes will test your resilience as you venture deeper into the unknown..." << endl << endl; 
 
     }
     else if (player.level == 3)
     {
         cout << setw(50) << "=== LEVEL 3 ===" << endl << endl;
-        enemy.enemyName = "ANNA";
+        enemy.enemyName = "BLOODVEIL SORCERER";
         enemy.enemyHealth = 130;
         enemy.difficultyLevel = 3;
         cout << "Foe Identified: " << enemy.enemyName << endl;
@@ -194,14 +197,14 @@ void EnemyInfo(Player& player, Enemy& enemy)
         cout << endl << endl;
         Sleep(2000);
         cout << "Level 3: Seize Glory in the Arena!" << endl;
-        cout << "ANNA story" << endl;//New enemy name and new story
-        cout << "continuing the story" << endl;//Continuing the story
+        cout << "Once a revered scholar, the BLOODVEIL SORCERER now commands dark, forbidden magic." << endl;
+        cout << "Defeat him and you may unlock the secrets of arcane powers he has embraced..." << endl;
 
     }
     else if (player.level == 4)
     {
         cout << setw(50) << "=== LEVEL 4 ===" << endl << endl;
-        enemy.enemyName = "CARLO";
+        enemy.enemyName = "VOID PHANTOM";
         enemy.enemyHealth = 150;
         enemy.difficultyLevel = 4;
         cout << "Foe Identified: " << enemy.enemyName << endl;
@@ -210,15 +213,15 @@ void EnemyInfo(Player& player, Enemy& enemy)
         cout << endl << endl;
         Sleep(2000);
         cout << "Level 4: Enter The Realm of Eternal Combat!" << endl;
-        cout << "CARLO story" << endl;//New enemy name and new story
-        cout << "continuing the story" << endl;//Continuing the story
+        cout << "Emerging from the rift between worlds, the VOID PHANTOM is a wraith of forgotten souls." << endl;
+        cout << "Only the bravest dare to face it, for its power comes from the very fabric of reality itself..." << endl;
         cout << endl << endl;
     
     }
     else if (player.level = player.levelMax)
     {
         cout << setw(50) << "=== FINALE ===" << endl << endl;
-        enemy.enemyName = "ANDY";
+        enemy.enemyName = "SHADOWSTRIKE RAIDER";
         enemy.enemyHealth = 200;
         enemy.difficultyLevel = 5;
         cout << "Foe Identified: " << enemy.enemyName << endl;
@@ -227,8 +230,8 @@ void EnemyInfo(Player& player, Enemy& enemy)
         cout << endl << endl;
         Sleep(2000);
         cout << "The Grand Showdown" << endl;
-        cout << "ANDY story" << endl;//New enemy name and new story
-        cout << "continuing the story" << endl;//Continuing the story
+        cout << "A master of stealth and assassination, the SHADOWSTRIKE RAIDER is the final obstacle in your path." << endl;
+        cout << "Survive its ambush, and you will prove yourself worthy of becoming a legend..." << endl;
     }
 
 }
@@ -309,11 +312,11 @@ int levelUp(Player& player)
         if (player.level > player.levelMax)
         {
             Sleep(2000);
-            cout << "After Andy's defeat, the truth emerges: the trials were humanity's last stand against an imminent alien invasion. Each character's role in shaping the simulation becomes clear. With Andy's fall, a new chapter begins. United by purpose, they harness the simulation's power, preparing to confront the looming threat. Their mission: defend humanity, using the simulation's depths to ensure unity against the impending extraterrestrial onslaught." << endl << endl;
+            cout << "The SHADOWSTRIKE RAIDER, the ultimate test of skill and perseverance, has been defeated. But with victory comes the realization: the trials were all leading to this moment. The adventurer, now empowered by the wisdom and strength gained, must confront the ancient evils in the stirring in the shadows, alone, with the fate of the realm resting in their hands.  " << endl << endl;
         }
         else 
         {
-            cout << "\nCongratulations! You've leveled up to Level " << player.level << "!" << endl;
+            cout << "\nWelldone, brave adventurer ! You have ascended to Level : " << player.level << "The realm trembles at your rise !" << endl;
             return player.level;
         }
     }
@@ -456,7 +459,7 @@ void battle(Player& player, Enemy& enemy)
                             }
                             else
                             {
-                                cout << "Invalid Input.";
+                                cout << "Invalid Input ! ";
                                 goto jump;
                             }
                         }
@@ -512,38 +515,38 @@ void Controls()
 void StoryLine(Player& player)
 {
     cout << endl << endl << set(70) << "Combat Chronicles: The Battle Begins" << endl << endl << endl;
-    cout << "In the realm of Valor, where tales of heroes echo through time," << endl;
-    cout << "the Combat Chronicles unveil legendary battles and untold bravery." << endl << endl;
+    cout << "In the heat of battle, heroes are made, and legends are written." << endl;
+    cout << "Welcome to the Combat Chronicles, where the story of your might and courage unfolds..." << endl << endl;
     
     Sleep(3000);
 
-    cout << "Level 1 - Enter the Arena:" << endl;
-    cout << "Your journey commences against Doctor, once a healer turned to dark arts." << endl;
-    cout << "He wields twisted magic, challenge him to begin your odyssey." << endl << endl;
+    cout << "Level 1 - Echoes of the Forgotten Path:" << endl;
+    cout << "The TWILIGHT SERPENT slithers in the murky depths, its venomous strike a silent threat in the dark." << endl;
+    cout << "Face it now to prove your strength in the first trial of your journey..." << endl << endl;
 
     Sleep(3000);
 
-    cout << "Level 2 - Shadows of Deception:" << endl;
-    cout << "Sara, Andy's stealthy assassin, lurks in the shadows, waiting for a challenger." << endl;
-    cout << "Unveil her stealth and outwit her to continue your epic quest." << endl << endl;
+    cout << "Level 2 - Storms of the Horizon:" << endl;
+    cout << "A creature born from thr storm, the THUNDER BEAST roars with the fury of the sky itself." << endl;
+    cout << "Its lightning-infused strikes will test your resilience as you venture deeper into the unknown..." << endl << endl;
 
     Sleep(3000);
 
-    cout << "Level 3 - Arcane Secrets:" << endl;
-    cout << "Anna, the sorceress wielding forbidden magic, stands guard in this realm." << endl;
-    cout << "Confront her arcane powers and surpass this mystical challenge." << endl << endl;
+    cout << "Level 3 - Veil of Shadows:" << endl;
+    cout << "Once a revered scholar, the BLOODVEIL SORCERER now commands dark, forbidden magic." << endl;
+    cout << "Defeat him and you may unlock the secrets of the arcane powers he has embraced..." << endl << endl;
 
     Sleep(3000);
 
-    cout << "Level 4 - Fortress of Strength:" << endl;
-    cout << "Carlo, the unyielding guardian of Andy's fortress, awaits your arrival." << endl;
-    cout << "Defeat his formidable strength and tactics to reach the final encounter." <<endl << endl;
+    cout << "Level 4 - Beyond the Rift:" << endl;
+    cout << "Emerging from the rift between the worlds, the VOID PHANTOM is a wraith of forgotten souls." << endl;
+    cout << "Only the bravest dare face it, for its power comes from the very fabric of reality itself..." <<endl << endl;
 
     Sleep(3000);
 
-    cout << "Final Showdown - Dark Sorcerer's Domain:" << endl;
-    cout << "Prepare for the ultimate confrontation against Andy, the malevolent sorcerer." << endl;
-    cout << "Unleash your valor to rewrite the Chronicles and claim victory!" << endl << endl;
+    cout << "Final Showdown - The Edge of Fate:" << endl;
+    cout << "A master of stealth and assassination, the SHADOWSTRIKE RAIDER is the final obstacle of your path." << endl;
+    cout << "Survive its ambush, and you will prove yourself worthy of becoming a legend..." << endl << endl;
 
     Sleep(3000);
 
@@ -555,7 +558,7 @@ void End(Player& player, Enemy& enemy)
     displayPlayerInfo(player);
     cout << endl;
     cout << player.name << "has triumphed over: " << endl << endl;
-    cout << "*DOCTOR\n*SARA\n*ANNA\n*CARLO\n*ANDY" << endl;
+    cout << "*TWILIGHT SERPENT\n*THUNDER BEAST\n*BLOODVEIL SORCERER\n*VOID PHANTOM\n*SHADOWSTRIKE RAIDER" << endl;
 
 }
 
