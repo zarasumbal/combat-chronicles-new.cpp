@@ -94,7 +94,7 @@ void Quit()
 
 void initializePlayer(Player& player)
 {
-    cout << "\n\n" << setw(60) << "CREATING PLAYER" << endl << endl << endl;
+    cout << "\n\n" << setw(60) << " CREATING PLAYER " << endl << endl << endl;
     cout << "Player Name: ";
 
     while(true)
@@ -122,8 +122,9 @@ void initializePlayer(Player& player)
 
     while (true)
     {
-        cout << endl << setw(55) << "CLASSES";
+        cout << endl << setw(55) << " CLASSES ";
         cout << "\n\n* SKY HUNTER\n\n* EMBER KNIGHT\n\n* RUNE SAGE " << endl;
+        cout << endl << setw(55) << " DESCRIPTION ";
         cout << "\n\n* SKY HUNTER : Aerial Precision\n\n* EMBER KNIGHT : Fiery Warrior\n\n* RUNE SAGE : Mystical Scholar" << endl;
         cout << endl;
         cout << "\nChoose your class: ";
@@ -155,8 +156,8 @@ void EnemyInfo(Player& player, Enemy& enemy)
 
     if (player.level == 1)
     {
-        cout << setw(50) << " === LEVEL 1 === " << endl << endl;
-        enemy.enemyName = "TWILIGHT SERPENT";
+        cout << setw(60) << " === LEVEL 1 === " << endl << endl;
+        enemy.enemyName = " TWILIGHT SERPENT";
         enemy.enemyHealth = 50;
         enemy.difficultyLevel = 1;
         cout << "Foe Identified: " << enemy.enemyName << endl;
@@ -171,12 +172,12 @@ void EnemyInfo(Player& player, Enemy& enemy)
     }
     else if (player.level == 2)
     {
-        cout << setw(50) << " === LEVEL 2 === " << endl;
-        enemy.enemyName = "THUNDER BEAST";
+        cout << setw(60) << " === LEVEL 2 === " << endl;
+        enemy.enemyName = " THUNDER BEAST";
         enemy.enemyHealth = 100;
         enemy.difficultyLevel = 2;
         cout << "Foe Identified: " << enemy.enemyName << endl;
-        cout << "Vitality:" << enemy.enemyHealth << endl;
+        cout << "Vitality: " << enemy.enemyHealth << endl;
         cout << "Difficulty Rank: " << enemy.difficultyLevel << endl;
         Sleep(2000);
         cout << endl << endl;
@@ -187,8 +188,8 @@ void EnemyInfo(Player& player, Enemy& enemy)
     }
     else if (player.level == 3)
     {
-        cout << setw(50) << " === LEVEL 3 === " << endl << endl;
-        enemy.enemyName = "BLOODVEIL SORCERER";
+        cout << setw(60) << " === LEVEL 3 === " << endl << endl;
+        enemy.enemyName = " BLOODVEIL SORCERER";
         enemy.enemyHealth = 130;
         enemy.difficultyLevel = 3;
         cout << "Foe Identified: " << enemy.enemyName << endl;
@@ -203,8 +204,8 @@ void EnemyInfo(Player& player, Enemy& enemy)
     }
     else if (player.level == 4)
     {
-        cout << setw(50) << " === LEVEL 4 === " << endl << endl;
-        enemy.enemyName = "VOID PHANTOM";
+        cout << setw(60) << " === LEVEL 4 === " << endl << endl;
+        enemy.enemyName = " VOID PHANTOM";
         enemy.enemyHealth = 150;
         enemy.difficultyLevel = 4;
         cout << "Foe Identified: " << enemy.enemyName << endl;
@@ -220,8 +221,8 @@ void EnemyInfo(Player& player, Enemy& enemy)
     }
     else if (player.level = player.levelMax)
     {
-        cout << setw(50) << " === FINALE === " << endl << endl;
-        enemy.enemyName = "SHADOWSTRIKE RAIDER";
+        cout << setw(60) << " === FINALE === " << endl << endl;
+        enemy.enemyName = " SHADOWSTRIKE RAIDER";
         enemy.enemyHealth = 200;
         enemy.difficultyLevel = 5;
         cout << "Foe Identified: " << enemy.enemyName << endl;
@@ -238,11 +239,11 @@ void EnemyInfo(Player& player, Enemy& enemy)
 
 void displayPlayerInfo(Player& player)
 {
-    cout << setw(65) << "Character Information\n\n";
-    cout << "Name: " << player.name << endl;
-    cout << "Class: " << player.playerClass << endl;
-    cout << "Health: " << player.health << endl;
-    cout << "Experience Points: " << player.experiencePoints << endl;
+    cout << setw(65) << " Character Information\n\n";
+    cout << "Name:  " << player.name << endl;
+    cout << "Class:  " << player.playerClass << endl;
+    cout << "Health:  " << player.health << endl;
+    cout << "Experience Points:  " << player.experiencePoints << endl;
     if (player.level > player.levelMax)
     {
         player.level = 5;
@@ -286,11 +287,11 @@ string Weapon(Player& player)
  
 void inventory(Player& player)
 {
-    player.inventory[0] = "Crimson Petal Lance";
-    player.inventory[1] = "Light Wind Blade";
-    player.inventory[2] = "Thundersong Bow";
-    player.inventory[3] = "Flame Sword";
-    player.inventory[4] = "Phoenix Blade";
+    player.inventory[0] = " Crimson Petal Lance";
+    player.inventory[1] = " Light Wind Blade";
+    player.inventory[2] = " Thundersong Bow";
+    player.inventory[3] = " Flame Sword";
+    player.inventory[4] = " Phoenix Blade";
     cout << "1. Crimson Petal Lance" << setw(40) << "at Level : 1" << endl;
     cout << "2. Light Wind Blade" << setw(40) << "   at Level : 2" << endl;
     cout << "3. Thundersong Bow" << setw(40) << "    at Level : 3" << endl;
@@ -316,7 +317,7 @@ int levelUp(Player& player)
         }
         else 
         {
-            cout << "\nWelldone, brave adventurer ! You have ascended to Level : " << player.level << "The realm trembles at your rise !" << endl;
+            cout << "\nWelldone, brave adventurer ! You have ascended to Level : " << player.level << "." << " The realm trembles at your rise !" << endl;
             return player.level;
         }
     }
@@ -408,7 +409,7 @@ int PlayerAttack(Player& player)
 void battle(Player& player, Enemy& enemy)
 {
     cout << "\nPlayer Weapon: " << Weapon(player) << endl << endl;
-    cout << setw(40) << player.name << setw(20) << "V/S" << setw(20) << enemy.enemyName << endl;
+    cout << setw(40) << player.name << setw(15) << "V/S" << setw(20) << enemy.enemyName << endl;
     while (true)
     {
         int enemyAttack = rand() % 30 + 5; //Simulates enemy attack
@@ -424,7 +425,7 @@ void battle(Player& player, Enemy& enemy)
                 if (player.health <= 0)
                 {
                     player.health = 0;
-                    cout << "\nYour Health: " << player.health << setw(25) << enemy.enemyName << " Health: " << enemy.enemyHealth << endl;
+                    cout << "\nYour Vitality: " << player.health << setw(25) << enemy.enemyName << "S" << " Vitality: " << enemy.enemyHealth << endl;
                     while (true)
                     {
                         cout << "You were defeated.\n\n";
@@ -477,7 +478,7 @@ void battle(Player& player, Enemy& enemy)
             {
                 enemy.enemyHealth = 0;
                 cout << "\nYour Health: " << player.health << setw(25) << enemy.enemyName << " Health: " << enemy.enemyHealth << endl;
-                cout << "You defeated: " << enemy.enemyName << "You gained 100 experience points. " << endl;
+                cout << "You defeated: " << enemy.enemyName << " You earned 100 experience points. " << endl;
                 player.experiencePoints = player.experiencePoints + 100;
                 levelUp(player);
 
@@ -557,7 +558,7 @@ void End(Player& player, Enemy& enemy)
 {
     displayPlayerInfo(player);
     cout << endl;
-    cout << player.name << "has triumphed over: " << endl << endl;
+    cout << player.name << " has triumphed over: " << endl << endl;
     cout << "*TWILIGHT SERPENT\n*THUNDER BEAST\n*BLOODVEIL SORCERER\n*VOID PHANTOM\n*SHADOWSTRIKE RAIDER" << endl;
 
 }
@@ -589,7 +590,7 @@ jump:
             string choice;
             do
             {
-                cout << "Press y to continue your journey....";
+                cout << " Press y to continue your journey....";
                 cin >> choice;
                 choice = input(choice);
                 choice = lowerString(choice);
@@ -608,7 +609,7 @@ jump:
             displayPlayerInfo(player);
         
         play:
-            cout << "Ready to embark on your quest? (Y/N): ";
+            cout << " Ready to embark on your quest? (Y/N): ";
             string choice;
             cin >> choice;
             choice = input(choice);
@@ -643,7 +644,7 @@ jump:
                                    do
                                    { 
                                     y:
-                                       cout << "Press y to continue... ";
+                                       cout << " Press y to continue... ";
                                        string x;
                                        cin >> x;
                                        x = input(x);
@@ -671,13 +672,13 @@ jump:
                         }
                         else if (player.level <= player.levelMax)
                         {
-                            cout << "Ready for next level (Y/N): ";
+                            cout << " Ready for next level (Y/N): ";
                             cin >> c;
                             c = input(c);
                             c = lowerString(c);
                             if (c == "n" || c == "N")
                             {
-                                cout << "Do you want to quit... (y/n): ";
+                                cout << " Do you want to quit... (y/n): ";
                             choice: 
                                 string ch;
                                 cin >> ch;
@@ -695,7 +696,7 @@ jump:
                                 }
                                 else
                                 {
-                                    cout << "Invalid Input !" << endl;
+                                    cout << " Invalid Input !" << endl;
                                     goto choice;
                                 }
                             }
@@ -725,7 +726,7 @@ jump:
                             }
                             else
                             {
-                                cout << "Invalid Input ! " << endl;
+                                cout << " Invalid Input ! " << endl;
                                 goto up;
                             }
                         }        
@@ -751,7 +752,7 @@ jump:
                         }
                         else if (choice == "n" || choice == "N")
                         {
-                            cout << "Inavlid Input ! " << endl;
+                            cout << " Invalid Input ! " << endl;
                             goto ch;
                         }
 
@@ -763,7 +764,7 @@ jump:
                 }
                 else
                 {
-                    cout << "Invalid Input ! " << endl;
+                    cout << " Invalid Input ! " << endl;
                     goto play;
                 }
 
@@ -778,7 +779,7 @@ jump:
             string choice;
             do
             {
-                cout << "Press y to continue...";
+                cout << " Press y to continue...";
                 cin >> choice;
                 choice = input(choice);
                 choice = lowerString(choice);
@@ -796,7 +797,7 @@ jump:
             string choice;
             do
             {
-                cout << "Press y to continue...";
+                cout << " Press y to continue...";
                 cin >> choice;
                 choice = input(choice);
                 choice = lowerString(choice);
@@ -818,7 +819,7 @@ jump:
         }
         else
         {
-            cout << "Invalid Input ! " << endl;
+            cout << " Invalid Input ! " << endl;
             goto jump;
         }
 
