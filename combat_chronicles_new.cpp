@@ -55,7 +55,7 @@ bool validateAlphaString(string name) //User defined function declaration
     for (const char c : name)
     {
         if (!isalpha(c) && !isspace(c))
-        return false;
+            return false;
     }
 
     return true;
@@ -74,19 +74,19 @@ string getValidName(string name)
 
 string input(string x)
 {
-    while(true)
+    while (true)
     {
-        if ( cin.fail())
+        if (cin.fail())
         {
             cin.clear();
         }
-        else if ( !cin.fail())
+        else if (!cin.fail())
         {
             return x;
         }
     }
 }
- 
+
 void Quit()
 {
     cout << setw(50) << " ~ GOODBYE! ~ " << endl;
@@ -97,7 +97,7 @@ void initializePlayer(Player& player)
     cout << "\n\n" << setw(60) << " CREATING PLAYER " << endl << endl << endl;
     cout << "Player Name: ";
 
-    while(true)
+    while (true)
     {
         getline(cin, player.name);
         player.name = input(player.name);
@@ -108,7 +108,7 @@ void initializePlayer(Player& player)
         {
             cout << "Invalid Input ! " << endl;
         }
-        else if(player.name.length() < 3 || player.name.length() > 8)
+        else if (player.name.length() < 3 || player.name.length() > 8)
         {
             cout << "Length must be between 3 to 8 characters." << endl;
         }
@@ -144,9 +144,9 @@ void initializePlayer(Player& player)
         }
     }
     player.experiencePoints = 0;
-        player.level = 1;
-        player.health = 100;
-        player.levelMax = 5;
+    player.level = 1;
+    player.health = 100;
+    player.levelMax = 5;
 }
 
 void EnemyInfo(Player& player, Enemy& enemy)
@@ -167,8 +167,8 @@ void EnemyInfo(Player& player, Enemy& enemy)
         Sleep(2000);
         cout << endl << endl;
         cout << "Level 1: The Arena Awaits Your Courage!" << endl;
-        cout << "The TWILIGHT SERPENT slithers in the murky depths, its venomous strike a silent threat in the dark. " << endl; 
-        cout << "Face it now to prove your strength in the first trial of your journey..." << endl << endl; 
+        cout << "The TWILIGHT SERPENT slithers in the murky depths, its venomous strike a silent threat in the dark. " << endl;
+        cout << "Face it now to prove your strength in the first trial of your journey..." << endl << endl;
     }
     else if (player.level == 2)
     {
@@ -182,8 +182,8 @@ void EnemyInfo(Player& player, Enemy& enemy)
         Sleep(2000);
         cout << endl << endl;
         cout << "Level 2: Get Ready To Rumble!" << endl;
-        cout << "A creature born from the strorm, the THUNDER BEAST roars with the fury of the sky itself. " << endl; 
-        cout << "Its lightning-infused strikes will test your resilience as you venture deeper into the unknown..." << endl << endl; 
+        cout << "A creature born from the strorm, the THUNDER BEAST roars with the fury of the sky itself. " << endl;
+        cout << "Its lightning-infused strikes will test your resilience as you venture deeper into the unknown..." << endl << endl;
 
     }
     else if (player.level == 3)
@@ -217,7 +217,7 @@ void EnemyInfo(Player& player, Enemy& enemy)
         cout << "Emerging from the rift between worlds, the VOID PHANTOM is a wraith of forgotten souls." << endl;
         cout << "Only the bravest dare to face it, for its power comes from the very fabric of reality itself..." << endl;
         cout << endl << endl;
-    
+
     }
     else if (player.level = player.levelMax)
     {
@@ -274,7 +274,7 @@ string Weapon(Player& player)
     if (player.level == 4)
     {
         player.weapon = "Flame Sword";
-        player.inventory[3] =player.weapon;
+        player.inventory[3] = player.weapon;
         return player.weapon;
     }
     if (player.level == 5)
@@ -284,7 +284,7 @@ string Weapon(Player& player)
         return player.weapon;
     }
 }
- 
+
 void inventory(Player& player)
 {
     player.inventory[0] = " Crimson Petal Lance";
@@ -293,10 +293,10 @@ void inventory(Player& player)
     player.inventory[3] = " Flame Sword";
     player.inventory[4] = " Phoenix Blade";
     cout << "1. Crimson Petal Lance" << setw(40) << "at Level : 1" << endl;
-    cout << "2. Light Wind Blade" << setw(40) << "   at Level : 2" << endl;
-    cout << "3. Thundersong Bow" << setw(40) << "    at Level : 3" << endl;
-    cout << "4. Flame Sword" << setw(40) << "        at Level : 4" << endl;
-    cout << "5. Phoenix Blade" << setw(40) << "      at Level : 5" << endl;
+    cout << "2. Light Wind Blade" << setw(40) << "at Level : 2" << endl;
+    cout << "3. Thundersong Bow" << setw(40) << "at Level : 3" << endl;
+    cout << "4. Flame Sword" << setw(40) << "at Level : 4" << endl;
+    cout << "5. Phoenix Blade" << setw(40) << "at Level : 5" << endl;
 }
 
 int levelUp(Player& player)
@@ -315,7 +315,7 @@ int levelUp(Player& player)
             Sleep(2000);
             cout << "The SHADOWSTRIKE RAIDER, the ultimate test of skill and perseverance, has been defeated. But with victory comes the realization: the trials were all leading to this moment. The adventurer, now empowered by the wisdom and strength gained, must confront the ancient evils in the stirring in the shadows, alone, with the fate of the realm resting in their hands.  " << endl << endl;
         }
-        else 
+        else
         {
             cout << "\nWelldone, brave adventurer ! You have ascended to Level : " << player.level << "." << " The realm trembles at your rise !" << endl;
             return player.level;
@@ -329,7 +329,7 @@ int PlayerAttack(Player& player)
     cin >> ch;
     ch = input(ch);
     ch = lowerString(ch);
-    while(true)
+    while (true)
     {
         if (!cin.eof() && !cin.fail())
         {
@@ -383,7 +383,9 @@ int PlayerAttack(Player& player)
             }
             else if (ch == "9")
             {
-                player.attack = 27; 
+                player.attack = 27;
+                return player.attack;
+                true;
             }
             else if (ch == "0")
             {
@@ -391,7 +393,7 @@ int PlayerAttack(Player& player)
                 return player.attack;
                 true;
             }
-            else 
+            else
             {
                 player.attack = 0;
                 break;
@@ -467,7 +469,7 @@ void battle(Player& player, Enemy& enemy)
                     };
                 }
 
-                else 
+                else
                 {
                     cout << "\nYour Health: " << player.health << setw(25) << enemy.enemyName << " Health: " << enemy.enemyHealth << endl;
                     true;
@@ -518,7 +520,7 @@ void StoryLine(Player& player)
     cout << endl << endl << setw(70) << "Combat Chronicles: The Battle Begins" << endl << endl << endl;
     cout << "In the heat of battle, heroes are made, and legends are written." << endl;
     cout << "Welcome to the Combat Chronicles, where the story of your might and courage unfolds..." << endl << endl;
-    
+
     Sleep(3000);
 
     cout << "Level 1 - Echoes of the Forgotten Path:" << endl;
@@ -541,7 +543,7 @@ void StoryLine(Player& player)
 
     cout << "Level 4 - Beyond the Rift:" << endl;
     cout << "Emerging from the rift between the worlds, the VOID PHANTOM is a wraith of forgotten souls." << endl;
-    cout << "Only the bravest dare face it, for its power comes from the very fabric of reality itself..." <<endl << endl;
+    cout << "Only the bravest dare face it, for its power comes from the very fabric of reality itself..." << endl << endl;
 
     Sleep(3000);
 
@@ -598,7 +600,7 @@ jump:
 
             main;
             break;
-            
+
         }
         else if (ch == "2")
         {
@@ -607,14 +609,14 @@ jump:
             initializePlayer(player);
             cout << endl << endl;
             displayPlayerInfo(player);
-        
+
         play:
             cout << " Ready to embark on your quest? (Y/N): ";
             string choice;
             cin >> choice;
             choice = input(choice);
             choice = lowerString(choice);
-            while(true)
+            while (true)
             {
                 if (choice == "y")
                 {
@@ -633,40 +635,40 @@ jump:
                             do
                             {
                             again:
-                               cout << "\nPress y to continue... ";
-                               cin >> choice;
-                               choice = input(choice);
-                               choice = lowerString(choice);
-                               if (choice == "y")
-                               {
-                                   system("cls");
-                                   End(player, enemy);
-                                   do
-                                   { 
+                                cout << "\nPress y to continue... ";
+                                cin >> choice;
+                                choice = input(choice);
+                                choice = lowerString(choice);
+                                if (choice == "y")
+                                {
+                                    system("cls");
+                                    End(player, enemy);
+                                    do
+                                    {
                                     y:
-                                       cout << " Press y to continue... ";
-                                       string x;
-                                       cin >> x;
-                                       x = input(x);
-                                       x = lowerString(x);
-                                       if (x == "y")
-                                       {
-                                          system("cls");
-                                          main();
-                                       }
-                                       else if (x != "y")
-                                       {
-                                          goto y;
-                                       }
-                                        
-                                        
+                                        cout << " Press y to continue... ";
+                                        string x;
+                                        cin >> x;
+                                        x = input(x);
+                                        x = lowerString(x);
+                                        if (x == "y")
+                                        {
+                                            system("cls");
+                                            main();
+                                        }
+                                        else if (x != "y")
+                                        {
+                                            goto y;
+                                        }
+
+
                                     } while (c != "y");
 
-                                }   
+                                }
                                 else if (choice != "y")
                                 {
                                     goto again;
-                                } 
+                                }
                             } while (c != "y");
 
                         }
@@ -679,7 +681,7 @@ jump:
                             if (c == "n" || c == "N")
                             {
                                 cout << " Do you want to quit... (y/n): ";
-                            choice: 
+                            choice:
                                 string ch;
                                 cin >> ch;
                                 ch = input(ch);
@@ -700,7 +702,7 @@ jump:
                                     goto choice;
                                 }
                             }
-                            else if  (c == "y" || c == "Y")
+                            else if (c == "y" || c == "Y")
                             {
                                 system("cls");
                                 if (player.level > player.levelMax)
@@ -719,18 +721,18 @@ jump:
                                     } while (choice == "y");
                                     main();
                                     break;
-                                    
+
                                 }
-                            
-                                
+
+
                             }
                             else
                             {
                                 cout << " Invalid Input ! " << endl;
                                 goto up;
                             }
-                        }        
-    
+                        }
+
                     } while (c == "y" || c == "Y");
                     true;
 
@@ -739,7 +741,7 @@ jump:
                 {
                     string choice;
                     cout << "\nDo you want to quit the game (Y/N): ";
-                    do 
+                    do
                     {
                     ch:
                         cin >> choice;
@@ -756,11 +758,11 @@ jump:
                             goto ch;
                         }
 
-                    
+
                     } while (choice == "Y" || choice == "y" || choice == "N" || choice == "n");
                     true;
-    
-                    
+
+
                 }
                 else
                 {
@@ -788,7 +790,7 @@ jump:
             true;
             main();
             break;
-            
+
         }
         else if (ch == "4")
         {
@@ -806,8 +808,8 @@ jump:
             true;
             main();
             break;
-            
-            
+
+
         }
         else if (ch == "5")
         {
